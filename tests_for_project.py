@@ -9,5 +9,5 @@ def test_search(open_google):
 def test_bad_search(open_google):
     input_text = 'asghtyjcnbkuyepoekheie'
     browser.element('[type="search"]').type(input_text).press_enter()
-    assert 'по запросу ничего не найдено' == 'по запросу ничего не найдено'
+    browser.element('[class="card-section"]').should(have.text('ничего не найдено'))
     time.sleep(5)
